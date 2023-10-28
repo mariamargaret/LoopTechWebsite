@@ -8,3 +8,4 @@ curl --location 'https://eastus.tts.speech.microsoft.com/cognitiveservices/v1' \
 Hi Ranjith How are you , I am AI Bot that can convert your text to speech
 </voice>
 </speak>'
+--output output2.mp3
