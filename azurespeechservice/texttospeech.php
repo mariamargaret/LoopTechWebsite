@@ -8,8 +8,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $curl_command = file_get_contents('curl_command.txt');
 
     // Replace input placeholder with actual input
-    $data = $predata + $input + $postdata;
-    $curl_command = str_replace('{input}', $data, $curl_command);
+    $data1 = {$predata1}{$input}{$postdata1};
+    echo $data1;
+    $curl_command = str_replace('{input}', $data1, $curl_command);
 
     echo $curl_command;
     echo "<br>";
@@ -31,8 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <form method="post">
         <label for="input">Enter text:</label>
-        <input type=hidden name="predata" value="<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female' name='en-US-JennyNeural'>">
-        <input type=hidden name="postdata" value="</voice></speak>">
+        <input type="hidden" name="predata1" id="predata1" value="<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female' name='en-US-JennyNeural'>">
+        <input type="hidden" name="postdata1" id="postdata1" value="</voice></speak>">
         <input type="text" name="input" id="input">
         <button type="submit">Submit</button>
     </form>
