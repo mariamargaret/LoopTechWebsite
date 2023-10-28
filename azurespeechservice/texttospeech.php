@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exec($curl_command);
 
     // Play audio file
-    echo "<audio autoplay><source src='audio.mp3' type='audio/mpeg'></audio>";
+    echo "<audio autoplay><source src='output.mp3' type='audio/mpeg'></audio>";
 }
 ?>
 
