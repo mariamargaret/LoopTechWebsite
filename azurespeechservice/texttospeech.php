@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $curl_command = file_get_contents('curl_command.txt');
 
     // Replace input placeholder with actual input
-    $curl_command = str_replace('{input}', $input, $curl_command);
+  //  $curl_command = str_replace('{input}', $input, $curl_command);
 
     echo $curl_command;
 
