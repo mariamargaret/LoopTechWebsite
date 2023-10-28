@@ -2,6 +2,7 @@
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve input from text field
     $input = $_POST['input'];
+    
 
     // Read curl command from file
     $curl_command = file_get_contents('curl_command.txt');
