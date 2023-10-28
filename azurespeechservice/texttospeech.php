@@ -24,9 +24,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         <input type="text" name="input" id="input">
         <button type="submit">Submit</button>
     </form>
-    <?php>
+    <?php
          echo "<audio controls autoplay><source src='output.mp3' type='audio/mpeg'></audio>";
-    </?>
+    ?>
 
 </body>
 </html>
