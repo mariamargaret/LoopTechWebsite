@@ -5,7 +5,7 @@ curl --location --request POST "https://eastus.tts.speech.microsoft.com/cognitiv
 --header "User-Agent: curl" --data-raw 
 "<speak version='1.0' xml:lang='en-US'>
 <voice xml:lang='en-US' xml:gender='Female' name='en-US-JennyNeural'>
-{data}
+Hi Ranjith How are you , I am AI Bot that can convert your text to speech
 </voice>
 </speak>" 
 --output output.mp3
