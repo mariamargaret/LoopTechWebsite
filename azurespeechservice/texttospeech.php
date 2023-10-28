@@ -10,6 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Replace input placeholder with actual input
     $curl_command = str_replace('{input}', $input, $curl_command);
 
+    echo $curl_command;
+
     // Execute curl command
     exec($curl_command);
 
