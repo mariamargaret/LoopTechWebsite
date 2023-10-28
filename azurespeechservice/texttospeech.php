@@ -11,12 +11,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $curl_command = str_replace('{data}', $input, $curl_command);
 
     echo $curl_command;
+    echo "<br>";
 
     // Execute curl command
-    exec($curl_command);
+    $response = exec($curl_command);
 
     // Play audio file
     echo "<audio controls autoplay><source src='output2.mp3' type='audio/mpeg'></audio>";
+    echo $response;
 }
 ?>
 
