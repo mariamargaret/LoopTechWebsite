@@ -1,24 +1,12 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Retrieve input from text field
-    $input = $_POST['input'];
-    // Read curl command from file
-    $curl_command = file_get_contents('curl_command.txt');
-
-    // Replace input placeholder with actual input
-//    $data1 = {$predata1}{$input}{$postdata1};
-    //echo $data1;
-   // $curl_command = str_replace('{input}', $data1, $curl_command);
-
-    echo $curl_command;
-    echo "<br>";
-
-    // Execute curl command
-    $response = exec($curl_command);
-
-    // Play audio file
-    echo "<audio controls autoplay><source src='output.mp3' type='audio/mpeg'></audio>";
-    echo $response;
+if(isset($_POST['input'])) {
+    $text = $_POST['input'];
+    $url = "https://eastus.tts.speech.microsoft.com/cognitiveservices/v1";
+    $subscription_key = "e8413e6a1ad84a46b6eeb4bb3d01a843";
+    $output_format = "audio-16khz-128kbitrate-mono-mp3";
+    $data = "<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female' name='en-US-JennyNeural'>$text</voice></speak>";
+    $command = "curl --location --request POST \"$url\" --header \"Ocp-Apim-Subscription-Key: $subscription_key\" --header \"Content-Type: application/ssml+xml\" --header \"X-Microsoft-OutputFormat: $output_format\" --header \"User-Agent: curl\" --data-raw \"$data\" --output output.mp3";
+    exec($command);
 }
 ?>
 
