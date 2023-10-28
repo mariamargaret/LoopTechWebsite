@@ -1,5 +1,6 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+    exec("rm output.mp3");
     $text = $_POST['input'];
     $url = "https://eastus.tts.speech.microsoft.com/cognitiveservices/v1";
     $subscription_key = "e8413e6a1ad84a46b6eeb4bb3d01a843";
@@ -8,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     $command = "curl --location --request POST \"$url\" --header \"Ocp-Apim-Subscription-Key: $subscription_key\" --header \"Content-Type: application/ssml+xml\" --header \"X-Microsoft-OutputFormat: $output_format\" --header \"User-Agent: curl\" --data-raw \"$data\" --output output.mp3";
     $response = exec($command);
     echo "<audio controls autoplay><source src='output.mp3' type='audio/mpeg'></audio>";
-    exec("rm output.mp3");
+    
 }
 ?>
 
