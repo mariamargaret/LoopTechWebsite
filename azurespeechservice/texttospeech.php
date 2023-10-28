@@ -1,5 +1,5 @@
 <?php
-if(isset($_POST['input'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     $text = $_POST['input'];
     $url = "https://eastus.tts.speech.microsoft.com/cognitiveservices/v1";
     $subscription_key = "e8413e6a1ad84a46b6eeb4bb3d01a843";
@@ -7,6 +7,7 @@ if(isset($_POST['input'])) {
     $data = "<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female' name='en-US-JennyNeural'>$text</voice></speak>";
     $command = "curl --location --request POST \"$url\" --header \"Ocp-Apim-Subscription-Key: $subscription_key\" --header \"Content-Type: application/ssml+xml\" --header \"X-Microsoft-OutputFormat: $output_format\" --header \"User-Agent: curl\" --data-raw \"$data\" --output output.mp3";
     exec($command);
+    echo "<audio controls autoplay><source src='output.mp3' type='audio/mpeg'></audio>";
 }
 ?>
 
