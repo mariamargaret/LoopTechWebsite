@@ -20,16 +20,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Expires" content="0" />
     <title>Text to Speech</title>
+    <link href="assets/img/LoopTech_MockupLogo_Black_15MAY2023.ico" rel="icon">
+  <link href="assets/img/LoopTech_MockupLogo_Black_15MAY2023.ico" rel="apple-touch-icon">
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
 </head>
 <body>
+you can use Azure AI Speech to converse with Azure OpenAI Service. The text recognized by the Speech service is sent to Azure OpenAI. The text response from Azure OpenAI is then synthesized by the Speech service.
     <form method="post">
-        <input type="hidden" name="gmtstamp" value="<?php gmdate("Y-m-d\TH:i:s\Z"); ?>" />
+        
         <label for="input">Enter text:</label>
         <input type="text" name="input" id="input">
         <button type="submit">Submit</button> 
     </form>
     <?php
-         echo "<audio controls ><source src='$timestamp-output.mp3' type='audio/mpeg'></audio>";
+         echo "<audio controls autoplay><source src='$timestamp-output.mp3' type='audio/mpeg'></audio>";
     ?>
 
 </body>
