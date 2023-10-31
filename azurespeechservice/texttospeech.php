@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         <button type="submit">Submit</button> 
     </form>
     <?php
-         echo "<audio controls preload="none"><source src='output.mp3' type='audio/mpeg'></audio>";
+         echo "<audio controls ><source src='output.mp3' type='audio/mpeg'></audio>";
     ?>
 
 </body>
