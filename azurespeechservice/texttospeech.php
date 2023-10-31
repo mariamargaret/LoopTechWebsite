@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     <form method="post">
         <label for="input">Enter text:</label>
         <input type="text" name="input" id="input">
-        <button type="submit">Submit</button>
+        <button type="submit">Submit</button> 
     </form>
     <?php
          echo "<audio controls preload="none"><source src='output.mp3' type='audio/mpeg'></audio>";
