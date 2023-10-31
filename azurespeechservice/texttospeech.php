@@ -1,8 +1,7 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
-    exec("rm output.mp3");
     $text = $_POST['input'];
-    $timestamp = $_POST['gmtstamp'];
+    $timestamp = gmdate("Y-m-d\TH:i:s\Z");
     $url = "https://eastus.tts.speech.microsoft.com/cognitiveservices/v1";
     $subscription_key = "e8413e6a1ad84a46b6eeb4bb3d01a843";
     $output_format = "audio-16khz-128kbitrate-mono-mp3";
