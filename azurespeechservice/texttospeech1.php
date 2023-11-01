@@ -1,3 +1,18 @@
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+    $text = $_POST['input'];
+    $timestamp = gmdate("Y-m-d\TH:i:s\Z");
+    $url = "https://eastus.tts.speech.microsoft.com/cognitiveservices/v1";
+    $subscription_key = "e8413e6a1ad84a46b6eeb4bb3d01a843";
+    $output_format = "audio-16khz-128kbitrate-mono-mp3";
+    $data = "<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female' name='en-US-JennyNeural'>$text</voice></speak>";
+    $command = "curl --location --request POST \"$url\" --header \"Ocp-Apim-Subscription-Key: $subscription_key\" --header \"Content-Type: application/ssml+xml\" --header \"X-Microsoft-OutputFormat: $output_format\" --header \"User-Agent: curl\" --data-raw \"$data\" --output \"$timestamp\"-output.mp3";
+    $response = exec($command);
+    
+    
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -133,7 +148,15 @@
                 </li>
                 <li> The text response from Azure OpenAI is then synthesized by the Speech service.</li>
               </ul>
-
+              <form method="post">
+        
+        <label for="input">Enter text:</label>
+        <input type="text" name="input" id="input" size="300">
+        <button type="submit">Submit</button> 
+    </form>
+    <?php
+         echo "<audio controls autoplay><source src='$timestamp-output.mp3' type='audio/mpeg'></audio>";
+    ?>
               <div class="testimonial-item">
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
