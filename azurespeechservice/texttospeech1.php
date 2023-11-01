@@ -148,15 +148,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
                 </li>
                 <li> The text response from Azure OpenAI is then synthesized by the Speech service.</li>
               </ul>
-              <form method="post">
-        
-        <label for="input">Enter text:</label>
-        <input type="text" name="input" id="input" size="300">
-        <button type="submit">Submit</button> 
-    </form>
-    <?php
-         echo "<audio controls autoplay><source src='$timestamp-output.mp3' type='audio/mpeg'></audio>";
-    ?>
+                <form method="post">
+            
+                  <label for="input">Enter text:</label>
+                  <textarea rows="4" cols="50" name="input" id="input"></textarea>
+                
+                  <button type="submit">Submit</button> 
+                </form>
+                <?php
+                    echo "<audio controls autoplay><source src='$timestamp-output.mp3' type='audio/mpeg'></audio>";
+                ?>
               <div class="testimonial-item">
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
